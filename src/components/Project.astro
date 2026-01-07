@@ -1,0 +1,26 @@
+<article
+  class="bg-DarkPurple/80 p-2 rounded-lg text-white border-Purple border-8 flex flex-col gap-2"
+>
+  <p class="uppercase font-bold">{Astro.props.title}</p>
+  <img src={Astro.props.src} alt={Astro.props.alt} />
+  <p class="text-pretty hover:duration-300">{Astro.props.description}</p>
+  <div class="flex gap-2 items-center">
+    <slot />
+  </div>
+  <div class="grid grid-cols-2 gap-2">
+    <a
+      href={Astro.props.code}
+      target="_blank"
+      rel="noopener"
+      class="flex gap-2 items-center m-auto bg-Purple p-2 rounded-lg hover:duration-300 text-white hover:bg-white hover:text-Purple"
+      ><i class="fa-solid fa-code"></i>Ver código</a
+    >
+    <a
+      href={Astro.props.preview}
+      target="_blank"
+      rel="noopener"
+      class="flex gap-2 items-center m-auto bg-DarkPurple p-2 rounded-lg hover:duration-300 text-white hover:bg-white hover:text-Purple"
+      ><i class="fa-solid fa-eye"></i>Ver preview
+    </a>
+  </div>
+</article>

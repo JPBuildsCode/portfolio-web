@@ -7,7 +7,7 @@ import Nav from "../components/Nav.astro";
 ---
 
 <!doctype html>
-<html lang={currentLang}>
+<html lang={currentLang} class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -24,8 +24,8 @@ import Nav from "../components/Nav.astro";
 			crossorigin="anonymous"></script>
 		<title>Juan Pablo Portfolio</title>
 	</head>
-	<body class="md:w-[95dvw] m-auto font-Space md:text-lg">
+	<body class="font-Space md:text-base">
 		<Nav />
-		<slot />
+		<main class="md:w-[70dvw] m-auto"><slot /></main>
 	</body>
 </html>

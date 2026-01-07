@@ -52,7 +52,30 @@ export const labels = {
 
     // ------------------------------------------------
 
-    "experience.title": "Experiencia"
+    "experience.title": "Experiencia",
+    "experience.1.date": "Septiembre 2024",
+    "experience.1.place": "CTP Santo Domingo de Heredia",
+    "experience.1.description": "Diseño, desarrollo e implementación de un sitio web para el CTP Santo Domingo, facilitando la difusión de información clave (visión, misión, oferta educativa) y optimizando la interacción con la comunidad.",
+
+    "experience.2.date": "2023 - Actualidad",
+    "experience.2.place": "Freelance",
+    "experience.2.description": "Diseño y desarrollo de sitios web personalizados para clientes, junto con la creación de contenido y diseño gráfico para redes sociales, asegurando soluciones digitales adaptadas a sus necesidades específicas.",
+
+    "experience.3.date": "Octubre 2025 - Diciembre 2025",
+    "experience.3.place": "Censolsa",
+    "experience.3.description": "Diseñé y desarrollé una aplicación web para gestión de equipos en taller, con registro de ingresos, seguimiento de reparaciones y trazabilidad de procesos, optimizando la información y mejorando la eficiencia en la toma de decisiones.",
+
+    // ------------------------------------------------
+
+    "knowledge.title": "Herramientas y tecnologias",
+    "knowledge.code.title": "Desarrollo web",
+    "knowledge.design.title": "Diseño gráfico",
+
+    // ------------------------------------------------
+    "projects.title": "Proyectos",
+
+
+
   },
   en: {
     "nav.home": "Home",
@@ -101,6 +124,27 @@ export const labels = {
 
     // ------------------------------------------------
 
-    "experience.title": "Experience"
+    "experience.title": "Experience",
+    "experience.1.date": "September 2024",
+    "experience.1.place": "CTP Santo Domingo de Heredia",
+    "experience.1.description": "Design, development, and implementation of a website for CTP Santo Domingo, facilitating the dissemination of key information (vision, mission, educational offerings) and optimizing community interaction",
+
+    "experience.2.date": "2023 - Currently",
+    "experience.2.place": "Freelance",
+    "experience.2.description": "Design and development of custom websites for clients, along with the creation of content and graphic design for social media, ensuring digital solutions tailored to their specific needs.",
+
+    "experience.3.date": "October 2025 - December 2025",
+    "experience.3.place": "Censolsa",
+    "experience.3.description": "I designed and developed a web application for workshop team management, with income recording, repair tracking, and process traceability, optimizing information and improving decision-making efficiency.",
+
+    // ------------------------------------------------
+    "knowledge.title": "Tools y technologies",
+    "knowledge.code.title": "Web development",
+    "knowledge.design.title": "Graphic design",
+
+    // ------------------------------------------------
+    "projects.title": "Projects",
+
+
   },
 }

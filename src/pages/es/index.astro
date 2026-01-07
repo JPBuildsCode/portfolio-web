@@ -3,6 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 import { useTranslations } from "../../i18n/utils";
 import { languagesList } from "../../i18n/ui";
 import Container from "../../components/Container.astro";
+import Experience from "../../components/Experience.astro";
+import Project from "../../components/Project.astro";
 
 const currentLang = Astro.currentLocale || "es";
 
@@ -12,7 +14,7 @@ const translatedLabels = useTranslations(
 ---
 
 <Layout>
-  <header class="md:grid md:grid-cols-2 items-center font-Manrope" id="Header">
+  <header class="md:grid md:grid-cols-2 items-center font-Manrope md:pt-24" id="Header">
     <section class="flex flex-col">
       <p class="">{translatedLabels("header.p1")}</p>
       <h1 class="text-Purple font-bold text-4xl">Juan Pablo</h1>
@@ -34,12 +36,8 @@ const translatedLabels = useTranslations(
         </div>
       </div>
     </section>
-    <section>
-      <img
-        src="/IMGS/Logo.png"
-        alt="Logo animado"
-        class="rounded-full block m-auto w-1/3"
-      />
+    <section class="flex justify-end items-center">
+      <img src="/IMGS/Logo.png" alt="Logo animado" class="rounded-full w-1/3" />
     </section>
   </header>
 
@@ -52,7 +50,7 @@ const translatedLabels = useTranslations(
 
     <div class="font-Manrope mt-2 md:grid grid-cols-2 gap-2">
       <Container>
-        <p class="flex gap-2 items-center text-xl font-bold mb-4">
+        <p class="flex gap-2 items-center text-lg font-bold mb-4 underline">
           <i class="fa-solid fa-palette"></i>{
             translatedLabels("services.title-design")
           }
@@ -89,7 +87,7 @@ const translatedLabels = useTranslations(
       </Container>
 
       <Container>
-        <p class="flex gap-2 items-center text-xl font-bold mb-4">
+        <p class="flex gap-2 items-center text-lg font-bold mb-4 underline">
           <i class="fa-solid fa-laptop"></i>{
             translatedLabels("services.title-software")
           }
@@ -133,5 +131,121 @@ const translatedLabels = useTranslations(
         translatedLabels("experience.title")
       }
     </h3>
+
+    <div class="md:grid grid-cols-3 gap-2 font-Manrope mt-2">
+      <Experience
+        p1={translatedLabels("experience.1.date")}
+        p2={translatedLabels("experience.1.place")}
+        p3={translatedLabels("experience.1.description")}
+      />
+      <Experience
+        p1={translatedLabels("experience.2.date")}
+        p2={translatedLabels("experience.2.place")}
+        p3={translatedLabels("experience.2.description")}
+      />
+      <Experience
+        p1={translatedLabels("experience.3.date")}
+        p2={translatedLabels("experience.3.place")}
+        p3={translatedLabels("experience.3.description")}
+      />
+    </div>
+  </section>
+
+  <section class="mt-8">
+    <h4 class="font-bold text-2xl flex gap-2 items-center">
+      <i class="fa-solid fa-arrow-right"></i>{
+        translatedLabels("knowledge.title")
+      }
+    </h4>
+
+    <div class="grid grid-cols-2 gap-2 mt-2">
+      <Container>
+        <p class="text-lg font-bold">
+          {translatedLabels("knowledge.design.title")}
+        </p>
+        <article class="grid grid-cols-2 items-center justify-center">
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Design/Photoshop.svg" alt="Photoshop ICON" />
+            <p>Photoshop</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Design/Figma.svg" alt="Figma ICON" />
+            <p>Figma</p>
+          </div>
+        </article>
+      </Container>
+
+      <Container>
+        <p class="text-lg font-bold">
+          {translatedLabels("knowledge.code.title")}
+        </p>
+        <article
+          class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-3 items-center justify-center gap-4"
+        >
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Code/HTML.svg" alt="HTML ICON" />
+            <p>HTML</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Code/CSS.svg" alt="CSS ICON" />
+            <p>CSS</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Code/Tailwindcss.svg" alt="Tailwindcss ICON" />
+            <p>Tailwind CSS</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Code/Astro.svg" alt="Astro ICON" />
+            <p>Astro</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Code/React.svg" alt="React ICON" />
+            <p>React</p>
+          </div>
+
+          <div class="flex flex-col items-center justify-center">
+            <img src="/ICONS/Code/Github.svg" alt="React ICON" />
+            <p>Github</p>
+          </div>
+        </article>
+      </Container>
+    </div>
+  </section>
+
+  <section class="mt-8">
+    <h5 class="font-bold text-2xl flex gap-2 items-center">
+      <i class="fa-solid fa-arrow-right"></i>{
+        translatedLabels("projects.title")
+      }
+    </h5>
+
+    <div class="mt-2 md:grid grid-cols-3 gap-8">
+      <Project
+        title="Con-siente CoWorking"
+        src="/IMGS/Projects/Consiente.png"
+        description="Sirve para proporcionar información detallada sobre los servicios y espacios que ofrecen. Permite a los usuarios conocer los distintos tipos de espacios de trabajo disponibles, como oficinas privadas y espacios de coworking, así como los servicios adicionales como café y salas de reuniones."
+        code="https://github.com/JPBuildsCode/Con-siente-Coworking"
+        preview="https://consiente-coworking.vercel.app/"
+      />
+      <Project
+        title="Con-siente CoWorking"
+        src="/IMGS/Projects/Consiente.png"
+        description="Sirve para proporcionar información detallada sobre los servicios y espacios que ofrecen. Permite a los usuarios conocer los distintos tipos de espacios de trabajo disponibles, como oficinas privadas y espacios de coworking, así como los servicios adicionales como café y salas de reuniones."
+        code="https://github.com/JPBuildsCode/Con-siente-Coworking"
+        preview="https://consiente-coworking.vercel.app/"
+      />
+      <Project
+        title="Con-siente CoWorking"
+        src="/IMGS/Projects/Consiente.png"
+        description="Sirve para proporcionar información detallada sobre los servicios y espacios que ofrecen. Permite a los usuarios conocer los distintos tipos de espacios de trabajo disponibles, como oficinas privadas y espacios de coworking, así como los servicios adicionales como café y salas de reuniones."
+        code="https://github.com/JPBuildsCode/Con-siente-Coworking"
+        preview="https://consiente-coworking.vercel.app/"
+      />
+    </div>
   </section>
 </Layout>
