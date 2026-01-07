@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+
+const currentLang = Astro.currentLocale || "es";
+
+import Nav from "../components/Nav.astro";
+---
+
+<!doctype html>
+<html lang={currentLang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/IMGS/Logo.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<script
+			src="https://kit.fontawesome.com/caac178fdb.js"
+			crossorigin="anonymous"></script>
+		<title>Juan Pablo Portfolio</title>
+	</head>
+	<body class="md:w-[95dvw] m-auto font-Space md:text-lg">
+		<Nav />
+		<slot />
+	</body>
+</html>

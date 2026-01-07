@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { useTranslations } from "../../i18n/utils";
+import { languagesList } from "../../i18n/ui";
+import Container from "../../components/Container.astro";
+
+const currentLang = Astro.currentLocale || "es";
+
+const translatedLabels = useTranslations(
+  currentLang as keyof typeof languagesList,
+);
+---
+
+<Layout>
+  <header class="md:grid md:grid-cols-2 items-center font-Manrope" id="Header">
+    <section class="flex flex-col">
+      <p class="">{translatedLabels("header.p1")}</p>
+      <h1 class="text-Purple font-bold text-4xl">Juan Pablo</h1>
+      <p>{translatedLabels("header.p2")}</p>
+      <p>{translatedLabels("header.p3")}</p>
+
+      <div class="mt-8 flex gap-2 items-center">
+        <button
+          class="flex gap-2 items-center bg-Purple rounded-lg text-white py-1 px-2 hover:bg-Purple/75 hover:duration-300 cursor-pointer"
+          ><i class="fa-solid fa-download"></i>{
+            translatedLabels("header.cta")
+          }</button
+        >
+
+        <div class="text-2xl flex gap-4">
+          <i class="fa-brands fa-x-twitter"></i>
+          <i class="fa-brands fa-github"></i>
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+      </div>
+    </section>
+    <section>
+      <img
+        src="/IMGS/Logo.png"
+        alt="Logo animado"
+        class="rounded-full block m-auto w-1/3"
+      />
+    </section>
+  </header>
+
+  <section class="mt-8" id="Services">
+    <h2 class="font-bold text-2xl flex gap-2 items-center">
+      <i class="fa-solid fa-arrow-right"></i>{
+        translatedLabels("services.title")
+      }
+    </h2>
+
+    <div class="font-Manrope mt-2 md:grid grid-cols-2 gap-2">
+      <Container>
+        <p class="flex gap-2 items-center text-xl font-bold mb-4">
+          <i class="fa-solid fa-palette"></i>{
+            translatedLabels("services.title-design")
+          }
+        </p>
+        <ul>
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.design-service1-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.design-service1-description")}
+          </li>
+
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.design-service2-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.design-service2-description")}
+          </li>
+
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.design-service3-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.design-service3-description")}
+          </li>
+
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.design-service4-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.design-service4-description")}
+          </li>
+        </ul>
+      </Container>
+
+      <Container>
+        <p class="flex gap-2 items-center text-xl font-bold mb-4">
+          <i class="fa-solid fa-laptop"></i>{
+            translatedLabels("services.title-software")
+          }
+        </p>
+        <ul>
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.software-service1-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.software-service1-description")}
+          </li>
+
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.software-service2-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.software-service2-description")}
+          </li>
+
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.software-service3-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.software-service3-description")}
+          </li>
+
+          <li class="font-bold list-disc ml-5">
+            {translatedLabels("services.software-service4-title")}
+          </li>
+          <li class="text-Gray">
+            {translatedLabels("services.software-service4-description")}
+          </li>
+        </ul>
+      </Container>
+    </div>
+  </section>
+
+  <section class="mt-8" id="Experience">
+    <h3 class="font-bold text-2xl flex gap-2 items-center">
+      <i class="fa-solid fa-arrow-right"></i>{
+        translatedLabels("experience.title")
+      }
+    </h3>
+  </section>
+</Layout>

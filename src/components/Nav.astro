@@ -1,0 +1,53 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { useTranslations } from "../i18n/utils";
+import { languagesList } from "../i18n/ui";
+
+const currentLang = Astro.currentLocale || "es";
+
+const translatedLabels = useTranslations(
+  currentLang as keyof typeof languagesList,
+);
+---
+
+<nav class="flex justify-between mt-4 items-center">
+  <a href=""
+    ><img src="/IMGS/Logo.png" alt="Logo" class="w-12 rounded-full" /></a
+  >
+  <ul class="flex gap-4 font-bold">
+    <li>
+      <a href={getRelativeLocaleUrl(currentLang, "/")}>
+        {translatedLabels("nav.home")}
+      </a>
+    </li>
+    <li>
+      <a
+        href={Astro.url.pathname === `/${currentLang}/`
+          ? "#Header"
+          : getRelativeLocaleUrl(currentLang, "/#Header")}
+      >
+        {translatedLabels("nav.about")}
+      </a>
+    </li>
+    <li>
+      <a href={getRelativeLocaleUrl(currentLang, "/projects")}>
+        {translatedLabels("nav.projects")}
+      </a>
+    </li>
+    <li>
+      <a href="#Services">
+        {translatedLabels("nav.services")}
+      </a>
+    </li>
+    <li>
+      <a href={getRelativeLocaleUrl(currentLang, "/contact-me")}>
+        {translatedLabels("nav.contact")}
+      </a>
+    </li>
+  </ul>
+
+  <div>
+    <button>ES</button>
+    <button>CV</button>
+  </div>
+</nav>
