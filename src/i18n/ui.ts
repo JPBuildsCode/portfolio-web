@@ -95,6 +95,20 @@ export const labels = {
     "project.graphic.6": "/IMGS/Projects/Graphic/ES/TECNOLOGIA2.webp",
     "project.graphic.7": "/IMGS/Projects/Graphic/ES/TECNOLOGIA3.webp",
     "project.graphic.8": "/IMGS/Projects/Graphic/ES/TECNOLOGIA4.webp",
+
+    // ------------------------------------------------
+
+
+    "contactme.title": "Contáctame",
+    "contactme.p1": "Hablemos para tus",
+    "contactme.p1.span": "proximos proyectos",
+    "contactme.p2": "Estoy disponible para asumir nuevos proyectos freelance, colaboraciones y oportunidades laborales. Por favor, no dude en ponerse en contacto conmigo para discutir de qué manera puedo contribuir a sus objetivos profesionales.",
+
+    "contactme.form.nombre": "Nombre",
+    "contactme.form.correo": "Correo",
+    "contactme.form.asunto": "Asunto",
+    "contactme.form.mensaje": "Mensaje",
+    "contactme.form.enviar": "Enviar",
   },
   en: {
     "nav.home": "Home",
@@ -187,5 +201,18 @@ export const labels = {
     "project.graphic.7": "/IMGS/Projects/Graphic/EN/TECNOLOGIA3.webp",
     "project.graphic.8": "/IMGS/Projects/Graphic/EN/TECNOLOGIA4.webp",
 
+    // ------------------------------------------------
+
+
+    "contactme.title": "Contact me",
+    "contactme.p1": "Let's talk for you",
+    "contactme.p1.span": "next projects",
+    "contactme.p2": "I am available to take on new freelance projects, collaborations, and job opportunities. Please feel free to contact me to discuss how I can contribute to your professional goals.",
+
+    "contactme.form.nombre": "Nombre",
+    "contactme.form.correo": "Correo",
+    "contactme.form.asunto": "Asunto",
+    "contactme.form.mensaje": "Mensaje",
+    "contactme.form.enviar": "Enviar",
   },
 }

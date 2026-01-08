@@ -2,7 +2,8 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../i18n/utils";
 import { languagesList } from "../i18n/ui";
-
+import { Image } from "astro:assets"; 
+import Logo from "../../src/assets/Logo.png";
 const currentLang = Astro.currentLocale || "es";
 
 const translatedLabels = useTranslations(
@@ -11,11 +12,11 @@ const translatedLabels = useTranslations(
 ---
 
 <nav
-  class="fixed top-0 w-full bg-white p-2 rounded-lg border-b-Purple border-b-4"
+  class="fixed top-0 w-full bg-white p-2 rounded-lg border-b-Purple border-b-4 hidden md:block"
 >
   <div class="w-[70dvw] mt-4 m-auto items-center flex justify-between">
     <a href={getRelativeLocaleUrl(currentLang, "/")}
-      ><img src="/IMGS/Logo.png" alt="Logo" class="w-12 rounded-full" /></a
+      ><Image src={Logo} alt="Logo" class="w-12 rounded-full" loading="eager"  /></a
     >
     <ul class="flex gap-4 font-bold">
       <li>
@@ -34,9 +35,11 @@ const translatedLabels = useTranslations(
       </li>
 
       <li>
-        <a href={Astro.url.pathname === `/${currentLang}/`
-          ? "#Projects"
-          : getRelativeLocaleUrl(currentLang, "/#Projects")}>
+        <a
+          href={Astro.url.pathname === `/${currentLang}/`
+            ? "#Projects"
+            : getRelativeLocaleUrl(currentLang, "/#Projects")}
+        >
           {translatedLabels("nav.projects")}
         </a>
       </li>

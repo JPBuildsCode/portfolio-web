@@ -13,7 +13,7 @@ const translatedLabels = useTranslations(
 >
   <p class="uppercase font-bold">{Astro.props.title}</p>
   <div class="flex flex-col justify-between gap-2 h-full">
-    <img src={Astro.props.src} alt={Astro.props.alt} />
+    <img src={Astro.props.src} alt={Astro.props.alt} loading="lazy" />
     <hr class="w-full border-2" />
     <p class="text-pretty hover:duration-300">{Astro.props.description}</p>
     <hr class="w-full border-2" />

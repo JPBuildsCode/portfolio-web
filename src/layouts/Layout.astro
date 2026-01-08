@@ -1,9 +1,9 @@
 ---
 import "../styles/global.css";
-
 const currentLang = Astro.currentLocale || "es";
 
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -26,6 +26,7 @@ import Nav from "../components/Nav.astro";
 	</head>
 	<body class="font-Space md:text-base">
 		<Nav />
-		<main class="md:w-[70dvw] m-auto"><slot /></main>
+		<main class="lg:w-[70dvw] w-[90dvw] m-auto"><slot /></main>
+		<Footer />
 	</body>
 </html>

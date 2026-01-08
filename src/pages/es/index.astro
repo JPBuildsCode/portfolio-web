@@ -6,6 +6,9 @@ import Project from "../../components/Project.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../../i18n/utils";
 import { languagesList } from "../../i18n/ui";
+import Logo from "../../assets/Logo.png";
+import Image from "astro/components/Image.astro";
+
 const currentLang = Astro.currentLocale || "es";
 
 const translatedLabels = useTranslations(
@@ -15,7 +18,7 @@ const translatedLabels = useTranslations(
 
 <Layout>
   <header
-    class="md:grid md:grid-cols-2 items-center font-Manrope md:pt-24"
+    class="flex flex-col md:grid md:grid-cols-2 items-center font-Manrope md:mt-24 mt-12 "
     id="Header"
   >
     <section class="flex flex-col">
@@ -33,14 +36,31 @@ const translatedLabels = useTranslations(
         >
 
         <div class="text-2xl flex gap-4">
-          <a href="#" class="fa-brands fa-x-twitter"></a>
-          <a href="#" class="fa-brands fa-github"></a>
-          <a href="#" class="fa-brands fa-linkedin"></a>
+          <a
+            href="#"
+            class="fa-brands fa-x-twitter"
+            target="_blank"
+            rel="noopener"></a>
+          <a
+            href="https://github.com/JPBuildsCode"
+            class="fa-brands fa-github"
+            target="_blank"
+            rel="noopener"></a>
+          <a
+            href="https://www.linkedin.com/in/jpbuildscode/"
+            class="fa-brands fa-linkedin"
+            target="_blank"
+            rel="noopener"></a>
         </div>
       </div>
     </section>
-    <section class="flex justify-end items-center">
-      <img src="/IMGS/Logo.png" alt="Logo animado" class="rounded-full w-1/3" />
+    <section class="justify-end items-center hidden md:flex">
+      <Image
+        src={Logo}
+        alt="Logo animado"
+        loading="eager"
+        class="rounded-full w-1/3"
+      />
     </section>
   </header>
 
@@ -51,7 +71,7 @@ const translatedLabels = useTranslations(
       }
     </h2>
 
-    <div class="font-Manrope mt-2 md:grid grid-cols-2 gap-2">
+    <div class="flex flex-col font-Manrope mt-2 md:grid grid-cols-2 md:gap-2 gap-4">
       <Container>
         <p class="flex gap-2 items-center text-lg font-bold mb-4 underline">
           <i class="fa-solid fa-palette"></i>{
@@ -135,7 +155,7 @@ const translatedLabels = useTranslations(
       }
     </h3>
 
-    <div class="md:grid grid-cols-3 gap-2 font-Manrope mt-2">
+    <div class="flex flex-col md:grid grid-cols-3 gap-2 font-Manrope mt-2">
       <Experience
         p1={translatedLabels("experience.1.date")}
         p2={translatedLabels("experience.1.place")}
@@ -161,19 +181,29 @@ const translatedLabels = useTranslations(
       }
     </h4>
 
-    <div class="grid grid-cols-2 gap-2 mt-2">
+    <div class="flex flex-col md:grid grid-cols-2 gap-2 mt-2">
       <Container>
         <p class="text-lg font-bold">
           {translatedLabels("knowledge.design.title")}
         </p>
         <article class="grid grid-cols-2 items-center justify-center">
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Design/Photoshop.svg" alt="Photoshop ICON" />
+            <img
+              loading="lazy"
+              src="/ICONS/Design/Photoshop.svg"
+              alt="Photoshop ICON"
+              class="size-12 lg:size-max"
+            />
             <p>Photoshop</p>
           </div>
 
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Design/Figma.svg" alt="Figma ICON" />
+            <img
+              loading="lazy"
+              src="/ICONS/Design/Figma.svg"
+              alt="Figma ICON"
+              class="size-12 lg:size-max"
+            />
             <p>Figma</p>
           </div>
         </article>
@@ -184,30 +214,38 @@ const translatedLabels = useTranslations(
           {translatedLabels("knowledge.code.title")}
         </p>
         <article
-          class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-3 items-center justify-center gap-4"
+          class="grid grid-cols-3 items-center justify-center gap-4"
         >
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Code/Astro.svg" alt="Astro ICON" />
+            <img loading="lazy" src="/ICONS/Code/Astro.svg" alt="Astro ICON" class="size-12 lg:size-max" />
             <p>Astro</p>
           </div>
 
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Code/JS.svg" alt="JavaScript ICON" />
+            <img
+              loading="lazy"
+              src="/ICONS/Code/JS.svg"
+              alt="JavaScript ICON" class="size-12 lg:size-max"
+            />
             <p>Javascript</p>
           </div>
-          
+
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Code/Tailwindcss.svg" alt="Tailwindcss ICON" />
+            <img
+              loading="lazy"
+              src="/ICONS/Code/Tailwindcss.svg"
+              alt="Tailwindcss ICON" class="size-12 lg:size-max"
+            />
             <p>Tailwind CSS</p>
           </div>
 
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Code/React.svg" alt="React ICON" />
+            <img loading="lazy" src="/ICONS/Code/React.svg" alt="React ICON" class="size-12 lg:size-max" />
             <p>React</p>
           </div>
 
           <div class="flex flex-col items-center justify-center">
-            <img src="/ICONS/Code/Github.svg" alt="React ICON" />
+            <img loading="lazy" src="/ICONS/Code/Github.svg" alt="React ICON" class="size-12 lg:size-max" />
             <p>Github</p>
           </div>
         </article>
@@ -230,7 +268,7 @@ const translatedLabels = useTranslations(
       >
     </div>
 
-    <div class="mt-2 md:grid grid-cols-3 gap-8">
+    <div class="flex flex-col mt-2 md:grid lg:grid-cols-3 md:grid-cols-2 gap-8">
       <Project
         title="Con-siente CoWorking"
         src="/IMGS/Projects/Consiente.webp"
@@ -239,12 +277,14 @@ const translatedLabels = useTranslations(
         preview="https://consiente-coworking.vercel.app/"
         ><div class="flex w-full justify-center gap-8 my-4">
           <img
+            loading="lazy"
             src="/ICONS/Code/Tailwindcss.svg"
             alt="Icon TailwindCSS"
             class="size-12"
             title="Icon TailwindCSS"
           />
           <img
+            loading="lazy"
             src="/ICONS/Code/Astro.svg"
             alt="Icon Astro"
             class="size-12"
@@ -255,18 +295,21 @@ const translatedLabels = useTranslations(
 
       <Project
         title="CTP Santo Domingo"
+        alt="CTP Santo Domingo"
         src="/IMGS/Projects/CTPSD.webp"
         description={translatedLabels("projects.2.description")}
-        code="https://github.com/JPBuildsCode/Con-siente-Coworking"
-        preview="https://consiente-coworking.vercel.app/"
+        code="https://github.com/JPBuildsCode/ctp-santodomingo"
+        preview="https://ctp-santodomingo.vercel.app/"
         ><div class="flex w-full justify-center gap-8 my-4">
           <img
+            loading="lazy"
             src="/ICONS/Code/Tailwindcss.svg"
             alt="Icon TailwindCSS"
             class="size-12"
             title="Icon TailwindCSS"
           />
           <img
+            loading="lazy"
             src="/ICONS/Code/React.svg"
             alt="Icon Astro"
             class="size-12"
@@ -277,18 +320,21 @@ const translatedLabels = useTranslations(
 
       <Project
         title="Dela Flowers"
+        alt="Dela Flowers"
         src="/IMGS/Projects/Dela-Flowers.webp"
         description={translatedLabels("projects.3.description")}
-        code="https://github.com/JPBuildsCode/Con-siente-Coworking"
-        preview="https://consiente-coworking.vercel.app/"
+        code="https://github.com/JPBuildsCode/Dela-Flowers"
+        preview="https://dela-flowers.vercel.app/"
         ><div class="flex w-full justify-center gap-8 my-4">
           <img
+            loading="lazy"
             src="/ICONS/Code/SASS.svg"
             alt="Icon SASS"
             class="size-12"
             title="Icon SASS"
           />
           <img
+            loading="lazy"
             src="/ICONS/Code/Astro.svg"
             alt="Icon Astro"
             class="size-12"
@@ -299,18 +345,21 @@ const translatedLabels = useTranslations(
 
       <Project
         title="Spooky Fest"
+        alt="Spooky Fest"
         src="/IMGS/Projects/Spooky-Fest.webp"
         description={translatedLabels("projects.4.description")}
-        code="https://github.com/JPBuildsCode/Con-siente-Coworking"
-        preview="https://consiente-coworking.vercel.app/"
+        code="https://github.com/JPBuildsCode/Halloween-Festival"
+        preview="https://spookyfest.vercel.app/"
         ><div class="flex w-full justify-center gap-8 my-4">
           <img
+            loading="lazy"
             src="/ICONS/Code/SASS.svg"
             alt="Icon SASS"
             class="size-12"
             title="Icon SASS"
           />
           <img
+            loading="lazy"
             src="/ICONS/Code/Astro.svg"
             alt="Icon Astro"
             class="size-12"
@@ -318,6 +367,93 @@ const translatedLabels = useTranslations(
           />
         </div></Project
       >
+    </div>
+  </section>
+
+  <section class="mt-8">
+    <div class="flex flex-col md:grid grid-cols-2 gap-8 font-Manrope">
+      <div>
+        <h6 class="text-xl font-bold">{translatedLabels("contactme.title")}</h6>
+        <p class="text-lg">
+          {translatedLabels("contactme.p1")}
+          <span class="text-Purple font-bold"
+            >{translatedLabels("contactme.p1.span")}</span
+          >
+        </p>
+        <p>{translatedLabels("contactme.p2")}</p>
+      </div>
+
+      <form action="submit" class="flex flex-col gap-2">
+        <div class="flex flex-col">
+          <label for="Nombre">Nombre</label>
+          <div
+            class="bg-DarkPurple rounded-lg p-2 text-white flex gap-2 items-center"
+          >
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              name="Nombre"
+              id="Nombre"
+              class="bg-transparent outline-none w-full"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <label for="Correo">{translatedLabels("contactme.form.correo")}</label
+          >
+          <div
+            class="bg-DarkPurple rounded-lg p-2 text-white flex gap-2 items-center"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="text"
+              name="Correo"
+              id="Correo"
+              class="bg-transparent outline-none w-full"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <label for="Asunto">{translatedLabels("contactme.form.asunto")}</label
+          >
+          <div
+            class="bg-DarkPurple rounded-lg p-2 text-white flex gap-2 items-center"
+          >
+            <i class="fa-solid fa-tag"></i>
+            <input
+              type="text"
+              name="Asunto"
+              id="Asunto"
+              class="bg-transparent outline-none w-full"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <label for="Mensaje"
+            >{translatedLabels("contactme.form.mensaje")}</label
+          >
+          <div
+            class="bg-DarkPurple rounded-lg p-2 text-white flex gap-2 items-center"
+          >
+            <i class="fa-solid fa-message"></i>
+            <input
+              type="text"
+              name="Mensaje"
+              id="Mensaje"
+              class="bg-transparent outline-none w-full"
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            class="bg-Purple p-2 rounded-lg flex items-center gap-2 justify-center w-max text-white"
+            ><i class="fa-solid fa-paper-plane"></i> Enviar</button
+          >
+        </div>
+      </form>
     </div>
   </section>
 </Layout>
