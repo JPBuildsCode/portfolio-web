@@ -73,9 +73,28 @@ export const labels = {
 
     // ------------------------------------------------
     "projects.title": "Proyectos",
+    "projects.more": "Mas proyectos",
 
+    "projects.1.description": "Sirve para proporcionar información detallada sobre los servicios y espacios que ofrecen. Permite a los usuarios conocer los distintos tipos de espacios de trabajo disponibles, como oficinas privadas y espacios de coworking, así como los servicios adicionales como café y salas de reuniones.",
 
+    "projects.2.description": "La página del Colegio Técnico Profesional de Santo Domingo (CTP Santo Domingo) proporciona información sobre la visión, misión, valores, historia, y oferta educativa del colegio. Además, ofrece detalles sobre eventos, servicios, y datos de contacto, facilitando así la comunicación entre la institución y la comunidad.",
 
+    "projects.3.description": "Es más que una simple página web, es un espacio donde la pasión por el crochet se transforma en arte en miniatura. Te invitamos a descubrir un universo tejido con amor, donde cada Amigurumi cobra vida con dedicación y cuidado.",
+
+    "projects.4.description": "La plataforma que te guiará por un Halloween sin igual. Explora una amplia gama de eventos, desde fiestas temáticas hasta casas embrujadas, filtra por categoría y ubicación para encontrar experiencias a tu medida. Obtén toda la información: fechas, precios, requisitos y detalles para una planificación perfecta.",
+
+    "projects.code": "Ver código",
+    "projects.preview": "Ver preview",
+    // ------------------------------------------------
+
+    "project.graphic.1": "/IMGS/Projects/Graphic/ES/Comida1.webp",
+    "project.graphic.2": "/IMGS/Projects/Graphic/ES/Comida2.webp",
+    "project.graphic.3": "/IMGS/Projects/Graphic/ES/Productos1.webp",
+    "project.graphic.4": "/IMGS/Projects/Graphic/ES/Productos2.webp",
+    "project.graphic.5": "/IMGS/Projects/Graphic/ES/TECNOLOGIA1.webp",
+    "project.graphic.6": "/IMGS/Projects/Graphic/ES/TECNOLOGIA2.webp",
+    "project.graphic.7": "/IMGS/Projects/Graphic/ES/TECNOLOGIA3.webp",
+    "project.graphic.8": "/IMGS/Projects/Graphic/ES/TECNOLOGIA4.webp",
   },
   en: {
     "nav.home": "Home",
@@ -144,7 +163,29 @@ export const labels = {
 
     // ------------------------------------------------
     "projects.title": "Projects",
+    "projects.more": "More projects",
 
+    "projects.1.description": "It is used to provide detailed information about the services and spaces they offer. It allows users to learn about the different types of workspaces available, such as private offices and coworking spaces, as well as additional services like coffee and meeting rooms.",
+
+    "projects.2.description": "The website of the Santo Domingo Professional Technical School (CTP Santo Domingo) provides information about the school's vision, mission, values, history, and educational offerings. It also offers details about events, services, and contact information, thereby facilitating communication between the institution and the community.",
+
+    "projects.3.description": "It's more than just a website; it's a space where the passion for crochet transforms into miniature art. We invite you to discover a universe woven with love, where each Amigurumi comes to life with dedication and care.",
+
+    "projects.4.description": "The platform that will guide you through an unparalleled Halloween. Explore a wide range of events, from themed parties to haunted houses, filter by category and location to find experiences tailored to you. Get all the information: dates, prices, requirements, and details for perfect planning.",
+
+    "projects.code": "Ver código",
+    "projects.preview": "Ver preview",
+
+    // ------------------------------------------------
+
+    "project.graphic.1": "/IMGS/Projects/Graphic/EN/Comida1.webp",
+    "project.graphic.2": "/IMGS/Projects/Graphic/EN/Comida2.webp",
+    "project.graphic.3": "/IMGS/Projects/Graphic/EN/Productos1.webp",
+    "project.graphic.4": "/IMGS/Projects/Graphic/EN/Productos2.webp",
+    "project.graphic.5": "/IMGS/Projects/Graphic/EN/TECNOLOGIA1.webp",
+    "project.graphic.6": "/IMGS/Projects/Graphic/EN/TECNOLOGIA2.webp",
+    "project.graphic.7": "/IMGS/Projects/Graphic/EN/TECNOLOGIA3.webp",
+    "project.graphic.8": "/IMGS/Projects/Graphic/EN/TECNOLOGIA4.webp",
 
   },
 }
