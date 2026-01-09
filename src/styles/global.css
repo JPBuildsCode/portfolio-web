@@ -1,11 +1,11 @@
 @import "tailwindcss";
-
+@import "aos/dist/aos.css";
 
 @theme {
-  --color-Purple: #7C3AED;
-  --color-DarkPurple: #2E1065;
-  --color-Gray: #D9D9D9;
+	--color-Purple: #7c3aed;
+	--color-DarkPurple: #2e1065;
+	--color-Gray: #d9d9d9;
 
-  --font-Space : "Space Grotesk";
-  --font-Manrope : "Manrope";
+	--font-Space: "Space Grotesk";
+	--font-Manrope: "Manrope";
 }

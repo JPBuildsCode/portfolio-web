@@ -2,70 +2,246 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { useTranslations } from "../i18n/utils";
 import { languagesList } from "../i18n/ui";
-import { Image } from "astro:assets"; 
+import { Image } from "astro:assets";
 import Logo from "../../src/assets/Logo.png";
 const currentLang = Astro.currentLocale || "es";
 
 const translatedLabels = useTranslations(
-  currentLang as keyof typeof languagesList,
+	currentLang as keyof typeof languagesList,
 );
+
+const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
+
+let menuIsOpen = false;
 ---
 
+<script>
+	const Navbar = document.getElementById("Navbar");
+
+	window.addEventListener("scroll", () => {
+		if (window.scrollY > 20) {
+			Navbar?.classList.add(
+				"border-b-Purple",
+				"dark:border-b-white",
+				"border-b-4",
+				"backdrop-blur-md",
+				"bg-white/70",
+				"dark:bg-DarkPurple/70",
+			);
+		} else {
+			Navbar?.classList.remove("border-b-Purple", "border-b-4");
+		}
+	});
+
+	const toggle = document.getElementById("MenuToggle");
+	const menu = document.getElementById("Menu");
+
+	let menuIsOpen = false;
+
+	toggle?.addEventListener("click", () => {
+		menuIsOpen = !menuIsOpen;
+		if (menuIsOpen) {
+			menu?.classList.remove("-translate-x-full");
+			menu?.classList.add("translate-x-0", "flex");
+			toggle?.classList.remove("fa-bars", "left-6");
+			toggle?.classList.add("fa-xmark", "right-[23%]");
+		} else {
+			menu?.classList.remove("translate-x-0", "flex");
+			menu?.classList.add("-translate-x-full");
+			toggle?.classList.remove("fa-xmark", "right-[23%]");
+			toggle?.classList.add("fa-bars", "left-6");
+		}
+	});
+</script>
+
 <nav
-  class="fixed top-0 w-full bg-white p-2 rounded-lg border-b-Purple border-b-4 hidden md:block"
+	class="fixed top-0 z-50 hidden w-full rounded-lg p-2 text-black md:block"
+	id="Navbar"
+	data-aos="fade-down"
+	data-aos-offset="200"
+	data-aos-duration="1500"
+	data-aos-easing="ease-in-out"
+	data-aos-delay="300"
 >
-  <div class="w-[70dvw] mt-4 m-auto items-center flex justify-between">
-    <a href={getRelativeLocaleUrl(currentLang, "/")}
-      ><Image src={Logo} alt="Logo" class="w-12 rounded-full" loading="eager"  /></a
-    >
-    <ul class="flex gap-4 font-bold">
-      <li>
-        <a href={getRelativeLocaleUrl(currentLang, "/")}>
-          {translatedLabels("nav.home")}
-        </a>
-      </li>
-      <li>
-        <a
-          href={Astro.url.pathname === `/${currentLang}/`
-            ? "#Header"
-            : getRelativeLocaleUrl(currentLang, "/#Header")}
-        >
-          {translatedLabels("nav.about")}
-        </a>
-      </li>
+	<div class="m-auto mt-4 flex w-[70dvw] items-center justify-between">
+		<a href={getRelativeLocaleUrl(currentLang, "/")}
+			><Image
+				src={Logo}
+				alt="Logo"
+				class="w-12 rounded-full"
+				loading="eager"
+			/></a
+		>
+		<ul class="flex gap-4 font-bold">
+			<li>
+				<a
+					class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+					href={getRelativeLocaleUrl(currentLang, "/")}
+				>
+					{translatedLabels("nav.home")}
+				</a>
+			</li>
+			<li>
+				<a
+					class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Header"
+						: getRelativeLocaleUrl(currentLang, "/#Header")}
+				>
+					{translatedLabels("nav.about")}
+				</a>
+			</li>
 
-      <li>
-        <a
-          href={Astro.url.pathname === `/${currentLang}/`
-            ? "#Projects"
-            : getRelativeLocaleUrl(currentLang, "/#Projects")}
-        >
-          {translatedLabels("nav.projects")}
-        </a>
-      </li>
+			<li>
+				<a
+					class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Projects"
+						: getRelativeLocaleUrl(currentLang, "/#Projects")}
+				>
+					{translatedLabels("nav.projects")}
+				</a>
+			</li>
 
-      <li>
-        <a
-          href={Astro.url.pathname === `/${currentLang}/`
-            ? "#Services"
-            : getRelativeLocaleUrl(currentLang, "/#Services")}
-        >
-          {translatedLabels("nav.services")}
-        </a>
-      </li>
-      <li>
-        <a
-          href={Astro.url.pathname === `/${currentLang}/`
-            ? "#Contact-me"
-            : getRelativeLocaleUrl(currentLang, "/#Contact-me")}
-        >
-          {translatedLabels("nav.contact")}
-        </a>
-      </li>
-    </ul>
-    <div>
-      <button>ES</button>
-      <button>CV</button>
-    </div>
-  </div>
+			<li>
+				<a
+					class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Services"
+						: getRelativeLocaleUrl(currentLang, "/#Services")}
+				>
+					{translatedLabels("nav.services")}
+				</a>
+			</li>
+			<li>
+				<a
+					class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Contact-me"
+						: getRelativeLocaleUrl(currentLang, "/#Contact-me")}
+				>
+					{translatedLabels("nav.contact")}
+				</a>
+			</li>
+		</ul>
+
+		<select
+			class="rounded-lg bg-gray-200 px-2 py-1"
+			data-path={currentPath}
+			onchange="const lang=this.value; const path=this.dataset.path||'/'; const hash=window.location.hash||''; window.location.href='/' + lang + path + hash;"
+		>
+			<option
+				value="es"
+				selected={currentLang === "es"}
+				>ES</option
+			>
+			<option
+				value="en"
+				selected={currentLang === "en"}
+				>EN</option
+			>
+			<option
+				value="nb"
+				selected={currentLang === "nb"}
+				>NB</option
+			>
+		</select>
+	</div>
+</nav>
+
+<nav class="fixed top-0 z-50 flex w-dvw gap-4 bg-white md:hidden">
+	<div
+		id="Menu"
+		class="bg-Purple fixed top-0 left-0 h-dvh w-2/3 -translate-x-full flex-col rounded-r-lg border-r-6 border-r-white transition-transform duration-500 ease-in-out"
+	>
+		<ul class="flex h-dvh flex-col justify-center gap-12 font-bold">
+			<li class="text-Purple flex w-full justify-center bg-white p-4">
+				<a href={getRelativeLocaleUrl(currentLang, "/")}>
+					{translatedLabels("nav.home")}
+				</a>
+			</li>
+
+			<li class="text-Purple flex w-full justify-center bg-white p-4">
+				<a
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Header"
+						: getRelativeLocaleUrl(currentLang, "/#Header")}
+				>
+					{translatedLabels("nav.about")}
+				</a>
+			</li>
+
+			<li class="text-Purple flex w-full justify-center bg-white p-4">
+				<a
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Projects"
+						: getRelativeLocaleUrl(currentLang, "/#Projects")}
+				>
+					{translatedLabels("nav.projects")}
+				</a>
+			</li>
+
+			<li class="text-Purple flex w-full justify-center bg-white p-4">
+				<a
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Services"
+						: getRelativeLocaleUrl(currentLang, "/#Services")}
+				>
+					{translatedLabels("nav.services")}
+				</a>
+			</li>
+			<li class="text-Purple flex w-full justify-center bg-white p-4">
+				<a
+					href={Astro.url.pathname === `/${currentLang}/`
+						? "#Contact-me"
+						: getRelativeLocaleUrl(currentLang, "/#Contact-me")}
+				>
+					{translatedLabels("nav.contact")}
+				</a>
+			</li>
+			<div class="flex flex-col gap-4 p-2">
+				<select
+					class="text-Purple cursor-pointer rounded-lg bg-gray-200 p-4 px-2"
+					data-path={currentPath}
+					onchange="const lang2=this.value; const path2=this.dataset.path||'/'; const hash2=window.location.hash||''; window.location.href='/' + lang2 + path2 + hash2;"
+				>
+					<option
+						value="es"
+						selected={currentLang === "es"}
+						>ES</option
+					>
+					<option
+						value="en"
+						selected={currentLang === "en"}
+						>EN</option
+					>
+					<option
+						value="nb"
+						selected={currentLang === "nb"}
+						>NB</option
+					>
+				</select>
+
+				<select
+					name="CV"
+					id="CV"
+					class="text-Purple cursor-pointer rounded-lg bg-gray-200 p-4 px-2"
+				>
+					<option value="">CV's</option>
+					<option value="ES">CV ES</option>
+					<option value="EN">CV EN</option>
+				</select>
+
+				<div
+					class="text-Purple m-auto flex w-max cursor-pointer items-center justify-center rounded-lg bg-white p-4"
+				>
+					<i class="fa-solid fa-sun text-3xl"></i>
+				</div>
+			</div>
+		</ul>
+	</div>
+	<i
+		id="MenuToggle"
+		class="fa-solid fa-bars text-Purple fixed top-4 left-6 z-50 cursor-pointer rounded-lg bg-white p-2 text-3xl hover:scale-90"
+	></i>
 </nav>

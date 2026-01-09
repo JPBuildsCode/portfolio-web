@@ -5,72 +5,89 @@ import { languagesList } from "../i18n/ui";
 const currentLang = Astro.currentLocale || "es";
 
 const translatedLabels = useTranslations(
-  currentLang as keyof typeof languagesList,
+	currentLang as keyof typeof languagesList,
 );
 ---
 
 <footer>
-  <ul
-    class="flex gap-4 font-bold items-center justify-between w-[70dvw] m-auto my-8 flex-wrap"
-  >
-    <li>
-      <a href={getRelativeLocaleUrl(currentLang, "/")}>
-        {translatedLabels("nav.home")}
-      </a>
-    </li>
-    <a
-      href="https://www.linkedin.com/in/jpbuildscode/"
-      class="fa-brands fa-linkedin"
-      rel="noopener"
-      target="_blank"></a>
+	<ul
+		class="m-auto my-8 flex w-[70dvw] flex-wrap items-center justify-between gap-4 font-bold"
+	>
+		<li>
+			<a
+				class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+				href={getRelativeLocaleUrl(currentLang, "/")}
+			>
+				{translatedLabels("nav.home")}
+			</a>
+		</li>
+		<a
+			href="https://www.linkedin.com/in/jpbuildscode/"
+			class="fa-brands fa-linkedin"
+			rel="noopener"
+			target="_blank"
+		></a>
 
-    <li>
-      <a
-        href={Astro.url.pathname === `/${currentLang}/`
-          ? "#Header"
-          : getRelativeLocaleUrl(currentLang, "/#Header")}
-      >
-        {translatedLabels("nav.about")}
-      </a>
-    </li>
-    <a href="#" class="fa-brands fa-x-twitter" rel="noopener" target="_blank"
-    ></a>
+		<li>
+			<a
+				class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+				href={Astro.url.pathname === `/${currentLang}/`
+					? "#Header"
+					: getRelativeLocaleUrl(currentLang, "/#Header")}
+			>
+				{translatedLabels("nav.about")}
+			</a>
+		</li>
+		<a
+			href="#"
+			class="fa-brands fa-x-twitter"
+			rel="noopener"
+			target="_blank"
+		></a>
 
-    <li>
-      <a
-        href={Astro.url.pathname === `/${currentLang}/`
-          ? "#Projects"
-          : getRelativeLocaleUrl(currentLang, "/#Projects")}
-      >
-        {translatedLabels("nav.projects")}
-      </a>
-    </li>
-    <a
-      href="https://github.com/JPBuildsCode"
-      class="fa-brands fa-github"
-      rel="noopener"
-      target="_blank"></a>
+		<li>
+			<a
+				class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+				href={Astro.url.pathname === `/${currentLang}/`
+					? "#Projects"
+					: getRelativeLocaleUrl(currentLang, "/#Projects")}
+			>
+				{translatedLabels("nav.projects")}
+			</a>
+		</li>
+		<a
+			href="https://github.com/JPBuildsCode"
+			class="fa-brands fa-github"
+			rel="noopener"
+			target="_blank"
+		></a>
 
-    <li>
-      <a
-        href={Astro.url.pathname === `/${currentLang}/`
-          ? "#Services"
-          : getRelativeLocaleUrl(currentLang, "/#Services")}
-      >
-        {translatedLabels("nav.services")}
-      </a>
-    </li>
-    <a href="#" class="fa-brands fa-instagram" rel="noopener" target="_blank"
-    ></a>
+		<li>
+			<a
+				class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+				href={Astro.url.pathname === `/${currentLang}/`
+					? "#Services"
+					: getRelativeLocaleUrl(currentLang, "/#Services")}
+			>
+				{translatedLabels("nav.services")}
+			</a>
+		</li>
+		<a
+			href="#"
+			class="fa-brands fa-instagram"
+			rel="noopener"
+			target="_blank"
+		></a>
 
-    <li>
-      <a
-        href={Astro.url.pathname === `/${currentLang}/`
-          ? "#Contact-me"
-          : getRelativeLocaleUrl(currentLang, "/#Contact-me")}
-      >
-        {translatedLabels("nav.contact")}
-      </a>
-    </li>
-  </ul>
+		<li>
+			<a
+				class="text-DarkPurple after:bg-DarkPurple relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full dark:text-white dark:after:bg-white"
+				href={Astro.url.pathname === `/${currentLang}/`
+					? "#Contact-me"
+					: getRelativeLocaleUrl(currentLang, "/#Contact-me")}
+			>
+				{translatedLabels("nav.contact")}
+			</a>
+		</li>
+	</ul>
 </footer>
