@@ -1,13 +1,12 @@
 ---
 import "../styles/global.css";
-const currentLang = Astro.currentLocale || "es";
-
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import AOSInit from "../components/AOSInit.tsx";
 ---
 
 <html
-	lang={currentLang}
+	lang="es"
 	class="scroll-smooth"
 >
 	<head>
@@ -21,6 +20,7 @@ import Footer from "../components/Footer.astro";
 			type="image/png"
 			href="/IMGS/Logo.png"
 		/>
+
 		<link
 			rel="preconnect"
 			href="https://fonts.googleapis.com"
@@ -44,18 +44,16 @@ import Footer from "../components/Footer.astro";
 			crossorigin="anonymous"
 		></script>
 
-		<script
-			type="module"
-			src="/public/scripts/aos-init.js"
-		></script>
-
 		<title>Juan Pablo Portfolio</title>
 	</head>
 	<body
 		class="font-Space dark:bg-DarkPurple overflow-x-hidden text-black md:text-base dark:text-white"
 	>
 		<Nav />
-		<main class="m-auto w-[90dvw] lg:w-[70dvw]"><slot /></main>
+		<main class="m-auto w-[90dvw] lg:w-[70dvw]">
+			<slot />
+		</main>
 		<Footer />
+		<AOSInit client:only="react" />
 	</body>
 </html>

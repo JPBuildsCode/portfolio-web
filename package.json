@@ -9,6 +9,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/react": "^4.4.2",
 		"@tailwindcss/vite": "^4.1.18",
 		"aos": "^2.3.4",
 		"astro": "^5.16.6",
@@ -16,6 +17,7 @@
 		"tailwindcss": "^4.1.18"
 	},
 	"devDependencies": {
+		"@types/aos": "^3.0.7",
 		"prettier": "^3.7.4",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.7.2"
