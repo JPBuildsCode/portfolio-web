@@ -69,7 +69,7 @@ export const labels = {
 		"experience.1.description":
 			"Diseño, desarrollo e implementación de un sitio web para el CTP Santo Domingo, facilitando la difusión de información clave (visión, misión, oferta educativa) y optimizando la interacción con la comunidad.",
 
-		"experience.2.date": "2023 - Actualidad",
+		"experience.2.date": "2023",
 		"experience.2.place": "Freelance",
 		"experience.2.description":
 			"Diseño y desarrollo de sitios web personalizados para clientes, junto con la creación de contenido y diseño gráfico para redes sociales, asegurando soluciones digitales adaptadas a sus necesidades específicas.",
@@ -190,7 +190,7 @@ export const labels = {
 		"experience.1.description":
 			"Design, development, and implementation of a website for CTP Santo Domingo, facilitating the dissemination of key information (vision, mission, educational offerings) and optimizing community interaction",
 
-		"experience.2.date": "2023 - Currently",
+		"experience.2.date": "2023",
 		"experience.2.place": "Freelance",
 		"experience.2.description":
 			"Design and development of custom websites for clients, along with the creation of content and graphic design for social media, ensuring digital solutions tailored to their specific needs.",
@@ -299,7 +299,7 @@ export const labels = {
 		"experience.1.place": "CTP Santo Domingo de Heredia",
 		"experience.1.description":
 			"Design, utvikling og implementering av en nettside for CTP Santo Domingo, som letter formidlingen av viktig informasjon (visjon, oppdrag, utdanningstilbud) og forbedrer samspillet med lokalsamfunnet.",
-		"experience.2.date": "2023 - Nåværende",
+		"experience.2.date": "2023",
 		"experience.2.place": "Frilans",
 		"experience.2.description":
 			"Design og utvikling av skreddersydde nettsider for kunder, samt innholdsproduksjon og grafisk design for sosiale medier, med digitale løsninger tilpasset deres behov.",
