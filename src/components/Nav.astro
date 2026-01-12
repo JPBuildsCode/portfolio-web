@@ -43,12 +43,12 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 			menu?.classList.remove("-translate-x-full");
 			menu?.classList.add("translate-x-0", "flex");
 			toggle?.classList.remove("fa-bars", "left-6");
-			toggle?.classList.add("fa-xmark", "right-[23%]");
+			toggle?.classList.add("fa-xmark", "right-[38%]");
 		} else {
 			document.body.style.overflow = "auto";
 			menu?.classList.remove("translate-x-0", "flex");
 			menu?.classList.add("-translate-x-full");
-			toggle?.classList.remove("fa-xmark", "right-[23%]");
+			toggle?.classList.remove("fa-xmark", "right-[38%]");
 			toggle?.classList.add("fa-bars", "left-6");
 		}
 	});
