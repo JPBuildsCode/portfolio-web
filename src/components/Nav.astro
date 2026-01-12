@@ -11,8 +11,6 @@ const translatedLabels = useTranslations(
 );
 
 const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
-
-let menuIsOpen = false;
 ---
 
 <script>
@@ -50,6 +48,44 @@ let menuIsOpen = false;
 			menu?.classList.add("-translate-x-full");
 			toggle?.classList.remove("fa-xmark", "right-[23%]");
 			toggle?.classList.add("fa-bars", "left-6");
+		}
+	});
+
+	const $openCVs = document.getElementById("OpenCVs");
+	const $CVs = document.getElementById("CVs");
+
+	let CVsOpen = false;
+
+	$openCVs?.addEventListener("click", () => {
+		if (CVsOpen) {
+			$CVs?.classList.add("-translate-y-48");
+			$CVs?.classList.remove("hidden");
+			$CVs?.classList.add("flex");
+			CVsOpen = false;
+		} else {
+			$CVs?.classList.remove("hidden");
+			$CVs?.classList.add("flex");
+			$CVs?.classList.remove("-translate-y-48");
+			CVsOpen = true;
+		}
+	});
+
+	const $openCVs2 = document.getElementById("OpenCVs2");
+	const $CVs2 = document.getElementById("CVs2");
+
+	let CVsOpen2 = false;
+
+	$openCVs2?.addEventListener("click", () => {
+		if (CVsOpen2) {
+			$CVs2?.classList.add("-translate-x-96");
+			$CVs2?.classList.remove("hidden");
+			$CVs2?.classList.add("flex");
+			CVsOpen2 = false;
+		} else {
+			$CVs2?.classList.remove("hidden");
+			$CVs2?.classList.add("flex");
+			$CVs2?.classList.remove("-translate-x-96");
+			CVsOpen2 = true;
 		}
 	});
 </script>
@@ -125,34 +161,62 @@ let menuIsOpen = false;
 			</li>
 		</ul>
 
-		<select
-			class="rounded-lg bg-gray-200 px-2 py-1"
-			data-path={currentPath}
-			onchange="const lang=this.value; const path=this.dataset.path||'/'; const hash=window.location.hash||''; window.location.href='/' + lang + path + hash;"
-		>
-			<option
-				value="es"
-				selected={currentLang === "es"}
-				>ES</option
+		<div class="flex items-center gap-2">
+			<select
+				class="bg-Purple cursor-pointer rounded-lg p-2 text-white"
+				data-path={currentPath}
+				onchange="const lang=this.value; const path=this.dataset.path||'/'; const hash=window.location.hash||''; window.location.href='/' + lang + path + hash;"
 			>
-			<option
-				value="en"
-				selected={currentLang === "en"}
-				>EN</option
+				<option
+					class="cursor-pointer"
+					value="es"
+					selected={currentLang === "es"}
+					>ES</option
+				>
+				<option
+					class="cursor-pointer"
+					value="en"
+					selected={currentLang === "en"}
+					>EN</option
+				>
+				<option
+					class="cursor-pointer"
+					value="nb"
+					selected={currentLang === "nb"}
+					>NOK</option
+				>
+			</select>
+
+			<div
+				class="text-Purple relative w-full cursor-pointer rounded-lg bg-white p-2"
 			>
-			<option
-				value="nb"
-				selected={currentLang === "nb"}
-				>NB</option
-			>
-		</select>
+				<p id="OpenCVs"><i class="fa-solid fa-download"></i> CV's</p>
+				<div
+					id="CVs"
+					class="absolute top-12 right-0 w-full -translate-y-48 flex-col gap-2 transition-all duration-500"
+				>
+					<a
+						class="bg-Purple hover:bg-DarkPurple dark:hover:text-Purple flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 text-white hover:scale-90 hover:duration-300 dark:hover:bg-white"
+						href=`/CV/CV-ES_JUAN-PABLO-GARCIA.docx`
+						download=`CV-ES_JUAN-PABLO-GARCIA.docx`
+						><i class="fa-solid fa-download"></i>ES</a
+					>
+					<a
+						class="bg-Purple hover:bg-DarkPurple dark:hover:text-Purple flex cursor-pointer items-center gap-2 rounded-lg px-2 py-1 text-white hover:scale-90 hover:duration-300 dark:hover:bg-white"
+						href=`/CV/CV-EN_JUAN-PABLO-GARCIA.docx`
+						download=`CV-EN_JUAN-PABLO-GARCIA.docx`
+						><i class="fa-solid fa-download"></i>EN</a
+					>
+				</div>
+			</div>
+		</div>
 	</div>
 </nav>
 
 <nav class="fixed top-0 z-50 flex w-dvw gap-4 bg-white md:hidden">
 	<div
 		id="Menu"
-		class="bg-Purple fixed top-0 left-0 h-dvh w-2/3 -translate-x-full flex-col rounded-r-lg border-r-6 border-r-white transition-transform duration-500 ease-in-out"
+		class="bg-Purple fixed top-0 left-0 h-dvh w-2/3 -translate-x-full flex-col rounded-r-lg border-r-6 border-r-white text-sm transition-transform duration-500 ease-in-out"
 	>
 		<ul class="flex h-dvh flex-col justify-center gap-12 font-bold">
 			<li class="text-Purple flex w-full justify-center bg-white p-4">
@@ -190,6 +254,7 @@ let menuIsOpen = false;
 					{translatedLabels("nav.services")}
 				</a>
 			</li>
+
 			<li class="text-Purple flex w-full justify-center bg-white p-4">
 				<a
 					href={Astro.url.pathname === `/${currentLang}/`
@@ -199,6 +264,7 @@ let menuIsOpen = false;
 					{translatedLabels("nav.contact")}
 				</a>
 			</li>
+
 			<div class="flex flex-col gap-4 p-2">
 				<select
 					class="text-Purple cursor-pointer rounded-lg bg-gray-200 p-4 px-2"
@@ -218,19 +284,32 @@ let menuIsOpen = false;
 					<option
 						value="nb"
 						selected={currentLang === "nb"}
-						>NB</option
+						>NOK</option
 					>
 				</select>
 
-				<select
-					name="CV"
-					id="CV"
-					class="text-Purple cursor-pointer rounded-lg bg-gray-200 p-4 px-2"
+				<div
+					class="text-Purple relative w-full cursor-pointer rounded-lg bg-white p-2"
 				>
-					<option value="">CV's</option>
-					<option value="ES">CV ES</option>
-					<option value="EN">CV EN</option>
-				</select>
+					<p id="OpenCVs2"><i class="fa-solid fa-download"></i> CV's</p>
+					<div
+						id="CVs2"
+						class="absolute top-12 right-0 w-full -translate-x-96 flex-col gap-2 rounded-lg bg-white transition-all duration-500"
+					>
+						<a
+							class="hover:bg-DarkPurple dark:hover:text-Purple text-Purple flex cursor-pointer items-center gap-2 rounded-lg bg-white px-2 py-1 hover:scale-90 hover:duration-300 dark:hover:bg-white"
+							href=`/CV/CV-ES_JUAN-PABLO-GARCIA.docx`
+							download=`CV-ES_JUAN-PABLO-GARCIA.docx`
+							><i class="fa-solid fa-download"></i>ES</a
+						>
+						<a
+							class="hover:bg-DarkPurple dark:hover:text-Purple text-wht-Purple flex cursor-pointer items-center gap-2 rounded-lg bg-white px-2 py-1 hover:scale-90 hover:duration-300 dark:hover:bg-white"
+							href=`/CV/CV-EN_JUAN-PABLO-GARCIA.docx`
+							download=`CV-EN_JUAN-PABLO-GARCIA.docx`
+							><i class="fa-solid fa-download"></i>EN</a
+						>
+					</div>
+				</div>
 
 				<div
 					class="text-Purple m-auto flex w-max cursor-pointer items-center justify-center rounded-lg bg-white p-4"
