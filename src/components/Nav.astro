@@ -39,11 +39,13 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 	toggle?.addEventListener("click", () => {
 		menuIsOpen = !menuIsOpen;
 		if (menuIsOpen) {
+			document.body.style.overflow = "hidden";
 			menu?.classList.remove("-translate-x-full");
 			menu?.classList.add("translate-x-0", "flex");
 			toggle?.classList.remove("fa-bars", "left-6");
 			toggle?.classList.add("fa-xmark", "right-[23%]");
 		} else {
+			document.body.style.overflow = "auto";
 			menu?.classList.remove("translate-x-0", "flex");
 			menu?.classList.add("-translate-x-full");
 			toggle?.classList.remove("fa-xmark", "right-[23%]");
@@ -62,6 +64,7 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 			$CVs?.classList.remove("hidden");
 			$CVs?.classList.add("flex");
 			CVsOpen = false;
+			
 		} else {
 			$CVs?.classList.remove("hidden");
 			$CVs?.classList.add("flex");
@@ -218,7 +221,7 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 		id="Menu"
 		class="bg-Purple fixed top-0 left-0 h-dvh w-2/3 -translate-x-full flex-col rounded-r-lg border-r-6 border-r-white text-sm transition-transform duration-500 ease-in-out"
 	>
-		<ul class="flex h-full flex-col justify-center gap-12 font-bold">
+		<ul class="flex h-dvh flex-col justify-center gap-12 font-bold">
 			<li class="text-Purple flex w-full justify-center bg-white p-4">
 				<a href={getRelativeLocaleUrl(currentLang, "/")}>
 					{translatedLabels("nav.home")}
