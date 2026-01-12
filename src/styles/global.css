@@ -9,3 +9,5 @@
 	--font-Space: "Space Grotesk";
 	--font-Manrope: "Manrope";
 }
+
+@custom-variant dark (&:where(.dark, .dark *));

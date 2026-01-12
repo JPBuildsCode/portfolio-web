@@ -5,9 +5,14 @@ import Footer from "../components/Footer.astro";
 import AOSInit from "../components/AOSInit.tsx";
 ---
 
+<script>
+	const Theme = localStorage.getItem("theme");
+	document.documentElement.classList.toggle("dark", Theme === "dark");
+</script>
+
 <html
 	lang="es"
-	class="scroll-smooth"
+	class="dark bg-White dark:bg-DarkPurple scroll-smooth transition-colors duration-300"
 >
 	<head>
 		<meta charset="UTF-8" />
@@ -47,7 +52,7 @@ import AOSInit from "../components/AOSInit.tsx";
 		<title>Juan Pablo Portfolio</title>
 	</head>
 	<body
-		class="font-Space dark:bg-DarkPurple overflow-x-hidden text-black md:text-base dark:text-white"
+		class="font-Space overflow-x-hidden text-black md:text-base dark:text-white"
 	>
 		<Nav />
 		<main class="m-auto w-[90%] overflow-x-hidden lg:w-[70dvw]">

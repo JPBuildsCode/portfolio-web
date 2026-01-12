@@ -42,14 +42,24 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 			document.body.style.overflow = "hidden";
 			menu?.classList.remove("-translate-x-full");
 			menu?.classList.add("translate-x-0", "flex");
-			toggle?.classList.remove("fa-bars", "left-6");
-			toggle?.classList.add("fa-xmark", "right-[38%]");
+			toggle?.classList.remove("fa-bars", "left-6", "text-white", "bg-Purple");
+			toggle?.classList.add(
+				"fa-xmark",
+				"right-[38%]",
+				"text-Purple",
+				"bg-white",
+			);
 		} else {
 			document.body.style.overflow = "auto";
 			menu?.classList.remove("translate-x-0", "flex");
 			menu?.classList.add("-translate-x-full");
-			toggle?.classList.remove("fa-xmark", "right-[38%]");
-			toggle?.classList.add("fa-bars", "left-6");
+			toggle?.classList.remove(
+				"fa-xmark",
+				"right-[38%]",
+				"text-Purple",
+				"bg-white",
+			);
+			toggle?.classList.add("fa-bars", "left-6", "text-white", "bg-Purple");
 		}
 	});
 
@@ -64,7 +74,6 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 			$CVs?.classList.remove("hidden");
 			$CVs?.classList.add("flex");
 			CVsOpen = false;
-			
 		} else {
 			$CVs?.classList.remove("hidden");
 			$CVs?.classList.add("flex");
@@ -90,6 +99,54 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 			$CVs2?.classList.remove("-translate-x-96");
 			CVsOpen2 = true;
 		}
+	});
+
+	const btnThemeChanger = document.getElementById("ThemeChanger");
+	const btnThemeChangerMobile = document.getElementById("ThemeChangerMobile");
+
+	function updateIcon() {
+		if (document.documentElement.classList.contains("dark")) {
+			// Está en oscuro → mostrar sol (para cambiar a claro)
+			btnThemeChanger?.classList.remove("fa-moon");
+			btnThemeChanger?.classList.add("fa-sun");
+			btnThemeChangerMobile?.classList.remove("fa-moon");
+			btnThemeChangerMobile?.classList.add("fa-sun");
+		} else {
+			// Está en claro → mostrar luna (para cambiar a oscuro)
+			btnThemeChanger?.classList.remove("fa-sun");
+			btnThemeChanger?.classList.add("fa-moon");
+			btnThemeChangerMobile?.classList.remove("fa-sun");
+			btnThemeChangerMobile?.classList.add("fa-moon");
+		}
+	}
+
+	// Inicializar según localStorage o sistema
+	let theme = localStorage.getItem("theme");
+	if (!theme) {
+		theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+			? "dark"
+			: "light";
+	}
+	document.documentElement.classList.toggle("dark", theme === "dark");
+	updateIcon();
+
+	// Botones
+	btnThemeChanger?.addEventListener("click", () => {
+		document.documentElement.classList.toggle("dark");
+		localStorage.setItem(
+			"theme",
+			document.documentElement.classList.contains("dark") ? "dark" : "light",
+		);
+		updateIcon();
+	});
+
+	btnThemeChangerMobile?.addEventListener("click", () => {
+		document.documentElement.classList.toggle("dark");
+		localStorage.setItem(
+			"theme",
+			document.documentElement.classList.contains("dark") ? "dark" : "light",
+		);
+		updateIcon();
 	});
 </script>
 
@@ -165,6 +222,10 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 		</ul>
 
 		<div class="flex items-center gap-2">
+			<i
+				class=`bg-DarkPurple fa-solid dark:text-Purple cursor-pointer rounded-lg p-2 text-2xl text-white duration-300 hover:scale-90 dark:bg-white`
+				id="ThemeChanger"
+			></i>
 			<select
 				class="bg-Purple cursor-pointer rounded-lg p-2 text-white"
 				data-path={currentPath}
@@ -191,7 +252,7 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 			</select>
 
 			<div
-				class="text-Purple relative w-full cursor-pointer rounded-lg bg-white p-2"
+				class="bg-DarkPurple dark:text-Purple relative w-full cursor-pointer rounded-lg p-2 text-white duration-300 hover:scale-90 dark:bg-white"
 			>
 				<p id="OpenCVs"><i class="fa-solid fa-download"></i> CV's</p>
 				<div
@@ -219,7 +280,7 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 <nav class="fixed top-0 z-50 flex w-dvw gap-4 bg-white md:hidden">
 	<div
 		id="Menu"
-		class="bg-Purple fixed top-0 left-0 h-dvh w-2/3 -translate-x-full flex-col rounded-r-lg border-r-6 border-r-white text-sm transition-transform duration-500 ease-in-out"
+		class="bg-Purple border-r-Purple fixed top-0 left-0 h-dvh w-2/3 -translate-x-full flex-col rounded-r-lg border-r-6 text-sm transition-transform duration-500 ease-in-out dark:border-r-white"
 	>
 		<ul class="flex h-dvh flex-col justify-center gap-4 font-bold">
 			<li class="text-Purple flex w-full justify-center bg-white p-4">
@@ -314,16 +375,15 @@ const currentPath = Astro.url.pathname.replace(/^\/(es|en|nb)/, "") || "/";
 					</div>
 				</div>
 
-				<div
-					class="text-Purple m-auto flex w-max cursor-pointer items-center justify-center rounded-lg bg-white p-4"
-				>
-					<i class="fa-solid fa-sun text-3xl"></i>
-				</div>
+				<i
+					class="fa-solid text-Purple m-auto w-max cursor-pointer rounded-lg bg-white p-2 text-center text-2xl duration-300 hover:scale-90"
+					id="ThemeChangerMobile"
+				></i>
 			</div>
 		</ul>
 	</div>
 	<i
 		id="MenuToggle"
-		class="fa-solid fa-bars text-Purple fixed top-4 left-6 z-50 cursor-pointer rounded-lg bg-white p-2 text-3xl hover:scale-90"
+		class=`fa-solid fa-bars dark:text-Purple fixed top-4 left-6 z-50 cursor-pointer rounded-lg dark:bg-white p-2 text-3xl hover:scale-90 text-white bg-Purple`
 	></i>
 </nav>
