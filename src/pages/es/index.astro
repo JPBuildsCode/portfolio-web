@@ -8,6 +8,7 @@ import { useTranslations } from "../../i18n/utils";
 import { languagesList } from "../../i18n/ui";
 import Logo from "../../assets/Logo.png";
 import Image from "astro/components/Image.astro";
+import AvailabilityDot from "../../components/AvailabilityDot.astro";
 
 const currentLang = Astro.currentLocale || "es";
 
@@ -15,7 +16,7 @@ const translatedLabels = useTranslations(
 	currentLang as keyof typeof languagesList,
 );
 
-console.log(`CV-${currentLang}_JUAN-PABLO-GARCIA`);
+const currentStatus = "Busy";
 ---
 
 <Layout>
@@ -29,6 +30,7 @@ console.log(`CV-${currentLang}_JUAN-PABLO-GARCIA`);
 		data-aos-delay="300"
 	>
 		<section class="flex flex-col">
+			<AvailabilityDot status="unavailable" />
 			<p class="">{translatedLabels("header.p1")}</p>
 			<h1 class="text-Purple text-4xl font-bold">Juan Pablo</h1>
 			<p>{translatedLabels("header.p2")}</p>
@@ -390,10 +392,10 @@ console.log(`CV-${currentLang}_JUAN-PABLO-GARCIA`);
 				><div class="my-4 flex w-full justify-center gap-8">
 					<img
 						loading="lazy"
-						src="/ICONS/Code/SASS.svg"
-						alt="Icon SASS"
+						src="/ICONS/Code/React.svg"
+						alt="Icon React"
 						class="size-12"
-						title="Icon SASS"
+						title="Icon React"
 					/>
 					<img
 						loading="lazy"
@@ -401,6 +403,13 @@ console.log(`CV-${currentLang}_JUAN-PABLO-GARCIA`);
 						alt="Icon Astro"
 						class="size-12"
 						title="Icon Astro"
+					/>
+					<img
+						loading="lazy"
+						src="/ICONS/Code/Tailwindcss.svg"
+						alt="Icon TailwindCSS"
+						class="size-12"
+						title="Icon TailwindCSS"
 					/>
 				</div></Project
 			>

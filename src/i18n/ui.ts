@@ -12,7 +12,9 @@ export const labels = {
 		"nav.services": "Servicios",
 		"nav.contact": "Contacto",
 		// ------------------------------------------------
-
+		"header.available": "Disponible",
+		"header.unavailable": "No disponible",
+		"header.busy": "Ocupado",
 		"header.p1": "Hola, soy",
 		"header.p2":
 			"Desarrollador web de 20 años apasionado por la tecnología y crear experiencias digitales modernas",
@@ -135,7 +137,9 @@ export const labels = {
 		"nav.services": "Services",
 		"nav.contact": "Contact",
 		// ------------------------------------------------
-
+		"header.available": "Available",
+		"header.unavailable": "Unavailable",
+		"header.busy": "Busy",
 		"header.p1": "Hi, i'm",
 		"header.p2":
 			"20-year-old web developer passionate about technology and creating modern digital experiences",
@@ -255,14 +259,17 @@ export const labels = {
 		"nav.projects": "Prosjekter",
 		"nav.services": "Tjenester",
 		"nav.contact": "Kontakt",
-
+		// ------------------------------------------------
+		"header.available": "Tilgjengelig",
+		"header.unavailable": "Ikke tilgjengelig",
+		"header.busy": "Okkupert",
 		"header.p1": "Hei, jeg er",
 		"header.p2":
 			"20 år gammel webutvikler med lidenskap for teknologi og moderne digitale opplevelser",
 		"header.p3":
 			"Selvlært, nysgjerrig og dedikert til kontinuerlig læring. Jeg gjør ideer om til klare og funksjonelle grensesnitt.",
 		"header.cta": "Last ned CV",
-
+		// ------------------------------------------------
 		"services.title": "Mine tjenester",
 		"services.title-software": "Webutvikling",
 		"services.software-service1-title": "Design og utvikling av landingssider:",
@@ -293,7 +300,7 @@ export const labels = {
 			"Klar og attraktiv visuell kommunikasjon:",
 		"services.design-service4-description":
 			"For å få budskapet ditt til å skille seg ut.",
-
+		// ------------------------------------------------
 		"experience.title": "Erfaring",
 		"experience.1.date": "September 2024",
 		"experience.1.place": "CTP Santo Domingo de Heredia",
@@ -307,11 +314,11 @@ export const labels = {
 		"experience.3.place": "Censolsa",
 		"experience.3.description":
 			"Jeg designet og utviklet en webapplikasjon for verkstedstyring, med inntektsregistrering, reparasjonssporing og prosessoversikt, som forbedret informasjonsflyten og beslutningseffektiviteten.",
-
+		// ------------------------------------------------
 		"knowledge.title": "Verktøy og teknologier",
 		"knowledge.code.title": "Webutvikling",
 		"knowledge.design.title": "Grafisk design",
-
+		// ------------------------------------------------
 		"projects.title": "Prosjekter",
 		"projects.more": "Flere prosjekter",
 		"projects.1.description":
@@ -324,7 +331,7 @@ export const labels = {
 			"Plattformen som guider deg gjennom en uforglemmelig Halloween. Utforsk et bredt utvalg av arrangementer, fra temafester til hjemsøkte hus, filtrer etter kategori og sted for å finne opplevelser som passer deg. Få all informasjon: datoer, priser, krav og detaljer for perfekt planlegging.",
 		"projects.code": "Se kode",
 		"projects.preview": "Se forhåndsvisning",
-
+		// ------------------------------------------------
 		"project.graphic.1": "/IMGS/Projects/Graphic/NO/Comida1.webp",
 		"project.graphic.2": "/IMGS/Projects/Graphic/NO/Comida2.webp",
 		"project.graphic.3": "/IMGS/Projects/Graphic/NO/Produkter1.webp",
@@ -333,7 +340,7 @@ export const labels = {
 		"project.graphic.6": "/IMGS/Projects/Graphic/NO/TEKNOLOGI2.webp",
 		"project.graphic.7": "/IMGS/Projects/Graphic/NO/TEKNOLOGI3.webp",
 		"project.graphic.8": "/IMGS/Projects/Graphic/NO/TEKNOLOGI4.webp",
-
+		// ------------------------------------------------
 		"contactme.title": "Kontakt meg",
 		"contactme.p1": "La oss snakke om dine",
 		"contactme.p1.span": "kommende prosjekter",

@@ -1,0 +1,59 @@
+---
+import { useTranslations } from "../i18n/utils";
+import { languagesList } from "../i18n/ui";
+
+const currentLang = Astro.currentLocale || "es";
+
+const translatedLabels = useTranslations(
+	currentLang as keyof typeof languagesList,
+);
+
+const STATUS = {
+	AVAILABLE: "available",
+	BUSY: "busy",
+	UNAVAILABLE: "unavailable",
+};
+
+const { status = STATUS.AVAILABLE } = Astro.props;
+
+const statusConfig = {
+	[STATUS.AVAILABLE]: {
+		text: translatedLabels("header.available"),
+		color: "bg-[#00FCE1]",
+		pulse: true,
+	},
+	[STATUS.BUSY]: {
+		text: translatedLabels("header.busy"),
+		color: "bg-zinc-500",
+		pulse: false,
+	},
+	[STATUS.UNAVAILABLE]: {
+		text: translatedLabels("header.unavailable"),
+		color: "bg-zinc-500",
+		pulse: false,
+	},
+};
+
+const config = statusConfig[status] || statusConfig[STATUS.UNAVAILABLE];
+---
+
+<div
+	class="my-2 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2"
+>
+	<div class="relative flex h-2.5 w-2.5">
+		{
+			config.pulse && (
+				<span
+					class={`absolute inline-flex h-full w-full animate-ping rounded-full ${config.color} opacity-75`}
+				/>
+			)
+		}
+		<span
+			class={`relative inline-flex rounded-full h-2.5 w-2.5 ${config.color}`}
+		></span>
+	</div>
+
+	<span class="text-xs font-medium tracking-wide text-white/80">
+		{config.text}
+	</span>
+</div>
