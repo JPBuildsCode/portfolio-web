@@ -8,12 +8,15 @@ import { useTranslations } from "../../i18n/utils";
 import { languagesList } from "../../i18n/ui";
 import Logo from "../../assets/Logo.png";
 import Image from "astro/components/Image.astro";
+import AvailabilityDot from "../../components/AvailabilityDot.astro";
 
 const currentLang = Astro.currentLocale || "es";
 
 const translatedLabels = useTranslations(
 	currentLang as keyof typeof languagesList,
 );
+
+const currentStatus = "Available";
 ---
 
 <Layout>
@@ -27,6 +30,7 @@ const translatedLabels = useTranslations(
 		data-aos-delay="300"
 	>
 		<section class="flex flex-col">
+			<AvailabilityDot status={currentStatus} />
 			<p class="">{translatedLabels("header.p1")}</p>
 			<h1 class="text-Purple text-4xl font-bold">Juan Pablo</h1>
 			<p>{translatedLabels("header.p2")}</p>

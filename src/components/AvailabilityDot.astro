@@ -34,7 +34,8 @@ const statusConfig = {
 	},
 };
 
-const config = statusConfig[status] || statusConfig[STATUS.UNAVAILABLE];
+const config =
+	statusConfig[status.toLowerCase()] || statusConfig[STATUS.UNAVAILABLE];
 ---
 
 <div
